@@ -19,8 +19,8 @@ namespace EmployeePayrollService
         public decimal TaxablePay { get; set; }
         public decimal Tax { get; set; }
         public decimal NetPay { get; set; }
-        //public string City { get; set; }
-        //public string Country { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
         public DateTime StartDate { get; set; }
     }
 }

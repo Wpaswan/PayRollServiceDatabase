@@ -15,8 +15,8 @@ namespace EmployeeManagementTest
             {
                 SalaryId = 3,
                 Month = "Jan",
-                EmployeeSalary = 1300,
-                EmployeeId = 2
+                EmployeeSalary = 3000000,
+                EmployeeId = 31
             };
 
             int EmpSalary = salary.UpdateEmployeeSalary(updateModel);

@@ -45,8 +45,8 @@ namespace EmployeePayrollService
                             employeeModel.TaxablePay = dr.GetDecimal(8);
                             employeeModel.Tax = dr.GetDecimal(9);
                             employeeModel.NetPay = dr.GetDecimal(10);
-                            //employeeModel.City = dr.GetString(12);
-                            //employeeModel.Country = dr.GetString(13);
+                            employeeModel.City = dr.GetString(12);
+                            employeeModel.Country = dr.GetString(13);
                             System.Console.WriteLine(employeeModel.EmployeeName+" "+employeeModel.BasicPay+ " "+employeeModel.StartDate +" "+ employeeModel.Gender+" "+ employeeModel.PhoneNumber+" "+employeeModel.Address+" "+ employeeModel.Department+" "+ employeeModel.Deductions+" "+ employeeModel.TaxablePay+" "+ employeeModel.Tax+" "+ employeeModel.NetPay);
                             System.Console.WriteLine("\n");
                         }
@@ -73,7 +73,7 @@ namespace EmployeePayrollService
                 using (connection)
                 {
                     //var qury=values()
-                    SqlCommand command = new SqlCommand("SpAddEmployeeDetails1", connection);
+                    SqlCommand command = new SqlCommand("SpAddEmployeeDetails2", connection);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@EmployeeName", model.EmployeeName);
                     command.Parameters.AddWithValue("@PhoneNumber", model.PhoneNumber);
@@ -86,8 +86,8 @@ namespace EmployeePayrollService
                     command.Parameters.AddWithValue("@Tax", model.Tax);
                     command.Parameters.AddWithValue("@NetPay", model.NetPay);
                     command.Parameters.AddWithValue("@StartDate", DateTime.Now);
-                    //command.Parameters.AddWithValue("@City", model.City);
-                    //command.Parameters.AddWithValue("@Country", model.Country);
+                    command.Parameters.AddWithValue("@City", model.City);
+                    command.Parameters.AddWithValue("@Country", model.Country);
                     connection.Open();
                     var result = command.ExecuteNonQuery();
                     connection.Close();
