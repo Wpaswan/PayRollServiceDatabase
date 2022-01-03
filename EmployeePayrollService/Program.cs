@@ -20,4 +20,17 @@ if (repo.AddEmployee(employee))
 repo.GetAllEmployee();
 Console.WriteLine("Records beween range");
 repo.RetriveDataBetweenRange();
+Console.WriteLine("Sum:");
+var result=repo.FindSum();
+if(result!=false)
+    Console.WriteLine(result);
+Console.WriteLine("Average=");
+repo.FindAverage();
+Console.WriteLine("Maximum salary:");
+repo.FindMaxSalary();
+Console.WriteLine("Minimum Salary");
+repo.FindMinSalary();
+Console.WriteLine();
+Console.WriteLine("Salary count:");
+repo.countSalary();
 Console.ReadKey();

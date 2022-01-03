@@ -163,6 +163,183 @@ namespace EmployeePayrollService
             }
 
         }
+        public bool FindSum()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+                //   SqlConnection connection = new SqlConnection(connectionString);
+                EmployeeModel employeeModel = new EmployeeModel();
+              
+                    using (connection)
+                {
+                    SqlCommand command = new SqlCommand("FindSum", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@basic_pay", employeeModel.BasicPay);
+                    //string query = @"Select Sum(basic_pay) from employee_payroll1 where  gender='F' group by gender ";
+                  //  SqlCommand cmd = new SqlCommand(command.CommandType.ToString(), connection);
+                    connection.Open();
+                    
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(reader[0]);
+                    }
+                    return default;
+                    connection.Close();
+
+                   
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+        public bool FindAverage()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+               
+                EmployeeModel employeeModel = new EmployeeModel();
+
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("FindAverage", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@basic_pay", employeeModel.BasicPay);
+                    
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(reader[0]);
+                    }
+                    return default;
+                    connection.Close();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+        public bool FindMaxSalary()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+
+                EmployeeModel employeeModel = new EmployeeModel();
+
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("FindMax", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@basic_pay", employeeModel.BasicPay);
+
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(reader[0]);
+                    }
+                    return default;
+                    connection.Close();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+        public bool countSalary()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+
+                EmployeeModel employeeModel = new EmployeeModel();
+
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("CountSalary", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@basic_pay", employeeModel.BasicPay);
+
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(reader[0]);
+                    }
+                    return default;
+                    connection.Close();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+        public bool FindMinSalary()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+
+                EmployeeModel employeeModel = new EmployeeModel();
+
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("FindMin", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@basic_pay", employeeModel.BasicPay);
+
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(reader[0]);
+                    }
+                    return default;
+                    connection.Close();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                return false;
+            }
+
+        }
+
 
 
     }
